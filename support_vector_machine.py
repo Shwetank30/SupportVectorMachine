@@ -15,7 +15,49 @@ class Support_Vector_Machine:
 
     # trains our SVM.  Optimization step.
     def fit(self, data):
-        pass
+        self.data = data
+        # we'll create a dictionary with key as magnitude of vector w &
+        # respective elements as vector w & b
+        # Remember here we are looking for w with minimum magnitude & b with largest magnitude that
+        # satisfy this eqn. yi(xi.w + b ) = 1
+        # { ||w||: [w,b] }
+        opt_dict = {}
+
+        # we make transforms to assure that all versions of the vector are checked
+
+        transforms = [[1,1],
+                      [-1,1],
+                      [-1,-1],
+                      [1,-1]]
+
+        all_data = []
+        for yi in self.data:
+            for featureset in self.data[yi]:
+                for feature in featureset:
+                    all_data.append(feature)
+
+        self.max_feature_value = max(all_data)
+        self.min_feature_value = min(all_data)
+        all_data = None
+
+        step_sizes = [self.max_feature_value * 0.1,
+                      self.max_feature_value * 0.01,
+                      # point of expense:
+                      self.max_feature_value * 0.001,]
+
+        # extremely expensive
+        b_range_multiple = 5
+        #
+        b_multiple = 5
+        latest_optimum = self.max_feature_value*10
+
+        for step in step_sizes:
+            w = np.array([latest_optimum, latest_optimum])
+            # we can do this because of convex nature
+            optimized = False
+            while not optimized:
+                pass
+
 
 
     # Predicts the value of a new featureset, after training the classifier
