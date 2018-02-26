@@ -19,3 +19,16 @@ Support Vector Machine( SVM ) is a binary classifier that is used to find out wh
  
  The hyperplanes passing through the support vectors should be such that the width between them is the maximum, then we draw a hyperplane between these two
  planes which is at half the width.   
+ 
+ SVM has some assertions which become constraints later on.
+ 
+ SVM's training is actually an optimization problem to find the best separating line aka
+ decision boundary.
+ 
+ Each dimension is a feature & the whole collection is a featureset.
+ We take a vector w that is perpendicular to the decision boundary, and then project vector u on w add some bias b to it & check to see if it is greater than  
+ or less than 0 for a given class.
+ 
+ 
+ 
+  
